@@ -25,15 +25,19 @@ Open a terminal in the root directory of the project and run the following comma
 ./mvnw spring-boot:run
 ```
 
+Alternatively, you can run the application from IntelliJ IDEA by navigating to the `CompressifyApplication.java` file, right-clicking on it, and selecting `Run 'CompressifyApplication.main()'`.
+
 ## Step 5: Using the API
-To compress an audio file, use the following `curl` command:
-```sh
-curl -X POST -F "file=@src/main/resources/testfiles/<your-audio-file>" http://localhost:8080/api/audio/compress -o compressed_audio_file
-```
+To compress an audio file, you can add the file in the payload via Postman or any tool that supports audio file payloads (e.g., a browser).
+
+### Example using Postman:
+1. Open Postman and create a new POST request.
+2. Set the URL to `http://localhost:8080/api/audio/compress`.
+3. In the `Body` tab, select `form-data`.
+4. Add a new key named `file` and set the type to `File`.
+5. Choose the audio file you want to compress.
+6. Send the request.
 
 ## Step 6: Locate the Compressed File
-The compressed audio file will be saved in the current directory with the name `compressed_audio_file`.
-```sh
-ls -lh compressed_audio_file
-```
+The log will return the location of the compressed file.
 ```
